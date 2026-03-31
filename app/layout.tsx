@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,11 +29,16 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
-      <body>
+      <body className="bg-white">
+        {/* Navbar visible on all pages */}
+        <Navbar />
+
+        {/* Page Content */}
         {children}
+        <Footer />
 
         {/* Floating Chat Widget */}
-        <div
+        {/* <div
           style={{
             position: "fixed",
             bottom: "20px",
@@ -41,7 +48,7 @@ export default function RootLayout({
             zIndex: 9999,
             borderRadius: "16px",
             overflow: "hidden",
-            boxShadow: "0 10px 40px rgba(0,0,0,0.15)",
+         //   boxShadow: "0 10px 40px rgba(0,0,0,0.15)",
           }}
         >
           <iframe
@@ -50,7 +57,7 @@ export default function RootLayout({
             height="100%"
             style={{ border: "none" }}
           />
-        </div>
+        </div> */}
       </body>
     </html>
   );

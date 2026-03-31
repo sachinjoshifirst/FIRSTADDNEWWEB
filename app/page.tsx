@@ -9,38 +9,14 @@ export default function Home() {
 
   const [openFAQ, setOpenFAQ] = useState<number | null>(0);
 
+  
 
   return (
 <main className="min-h-screen bg-white text-gray-900 overflow-x-hidden">
-      {/* Navbar */}
-      <header className="gradient-bg flex justify-between items-center px-8 py-5">
-<Image
-  src="/icon/logo.png"
-  alt="First Advisor Logo"
-  width={100}
-  height={50}
-/>
-      <nav className="hidden md:flex gap-6 text-sm items-center">
-    <Link  href="#" className="flex items-center gap-1 hover:text-blue-600">
-      About Us <ChevronDown size={16} />
-    </Link >
-          <a href="#" className="flex items-center gap-1 hover:text-blue-600">Insurance Products <ChevronDown size={16} /></a>
-          <a href="#" className="flex items-center gap-1 hover:text-blue-600">Insurance Advisors <ChevronDown size={16} /></a>
-          <a href="#" className="flex items-center gap-1 hover:text-blue-600">Raise a Claim <ChevronDown size={16} /></a>
-          <a href="#" className="flex items-center gap-1 hover:text-blue-600">Support <ChevronDown size={16} /></a>
-          <a href="#" className="flex items-center gap-1 hover:text-blue-600">News <ChevronDown size={16} /></a>
-        </nav>
-
-        <div className="flex gap-3">
-          <button className="px-4 py-2 border rounded-lg">Login</button>
-          <button className="px-4 py-2 bg-blue-600 text-white rounded-lg">
-            Become a POSP
-          </button>
-        </div>
-      </header>
+  
 
       {/* Hero Section */}
-      <section className="gradient-bg px-10 pt-16 pb-24">
+      <section className="gradient-bg px-10 pt-5 pb-24">
         <div className="grid md:grid-cols-2 gap-10 items-center mb-12">
 
           <motion.div
@@ -48,17 +24,14 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-5xl font-bold mt-4 mb-4 text-black">
-              Your insurance journey, simplified
-            </h2>
+          <h2 className="text-5xl font-bold mt-4 mb-4 text-black">
+  Your insurance <br></br>journey, <span style={{ color: '#1062D4' }}>simplified</span>
+</h2>
 
-            <p className="mb-6 text-white/90">
-              Save up to 20% on health insurance
-            </p>
-
-            <button className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:scale-105 transition">
+         
+            {/* <button className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:scale-105 transition">
               Talk to Expert
-            </button>
+            </button> */}
           </motion.div>
 
           <motion.div
@@ -66,65 +39,69 @@ export default function Home() {
             transition={{ duration: 4, repeat: Infinity }}
             className="hidden md:flex justify-center"
           >
-            <div className="bg-white/10 backdrop-blur-lg h-[260px] w-full rounded-xl flex items-center justify-center text-white">
-              <Image
-                src="/heroimg.png"
-                alt="Insurance Banner"
-                width={700}
-                height={300}
-                priority
-              />
-            </div>
+<Image
+  src="/heroimg.png"
+  alt="Insurance Banner"
+  width={1400}    // double the display width for high-DPI
+  height={520}    // double the display height
+  className="w-full h-[260px] object-cover rounded-xl"
+  priority
+  quality={100}
+/>
           </motion.div>
 
         </div>
 
-     {/* Insurance Cards (visible without scroll) */}
-<div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-8">
+   {/* Insurance Cards */}
+<div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-2">
   {[
-    { name: "Car Insurance", icon: "/icon/car.png" },
-    { name: "Bike Insurance", icon: "/icon/bike.png" },
-    { name: "Health Insurance", icon: "/icon/health.png" },
-    { name: "Travel Insurance", icon: "/icon/travel.png" },
-    { name: "Business Insurance", icon: "/icon/bussines.png" },
-    { name: "Term Insurance", icon: "/icon/term.png" },
-    { name: "Family Health", icon: "/icon/family.png" },
-    { name: "Home Insurance", icon: "/icon/home.png" },
-    { name: "Investment Plans", icon: "/icon/invest.png" },
-    { name: "View All", icon: "/icon/all.png" },
+    { name: "Car Insurance", icon: "/icon/carsnew.png", hoverIcon: "/icon/carnewhover.png" },
+    { name: "Bike Insurance", icon: "/icon/bikenew.png", hoverIcon: "/icon/bikenewhover.png" },
+    { name: "Health Insurance", icon: "/icon/healthnew.png", hoverIcon: "/icon/healthnewhover.png" },
+    { name: "Travel Insurance", icon: "/icon/travelnew.png", hoverIcon: "/icon/travelnewhover.png" },
+    { name: "Business Insurance", icon: "/icon/bussinesnew.png", hoverIcon: "/icon/bussinesnewhover.png" },
+    { name: "Term Insurance", icon: "/icon/termnew.png", hoverIcon: "/icon/termnewhover.png" },
+    { name: "Family Health", icon: "/icon/familynew.png", hoverIcon: "/icon/familynewhover.png" },
+    { name: "Home Insurance", icon: "/icon/homenew.png", hoverIcon: "/icon/homenewhover.png" },
+    { name: "Investment Plans", icon: "/icon/investnew.png", hoverIcon: "/icon/investnewhover.png" },
+    { name: "View All", icon: "/icon/allnew.png", hoverIcon: "/icon/allnewhover.png" },
   ].map((item, index) => (
     <motion.div
       key={index}
-      whileHover={{
-        y: -8,
-        scale: 1.03
-      }}
-      transition={{ type: "spring", stiffness: 260 }}
-      className="bg-white p-4 rounded-xl text-center shadow-sm border border-gray-100 hover:shadow-xl hover:bg-blue-50 transition-all duration-300 cursor-pointer"
+      whileHover={{ y: -6, scale: 1.05 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      className="bg-white p-4 rounded-xl text-center shadow-sm border border-gray-100 cursor-pointer hover:shadow-xl hover:bg-blue-50 transition-all duration-300 flex flex-col items-center justify-between"
     >
-      <div className="flex justify-center mb-2">
-        <motion.div
-          whileHover={{
-            scale: 1.25,
-            rotate: 8
-          }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          <Image
-            src={item.icon}
-            alt={item.name}
-            width={38}
-            height={38}
-          />
-        </motion.div>
-      </div>
-
-      <p className="text-sm font-medium text-gray-900 leading-tight">
-        {item.name}
-      </p>
+      <motion.div
+        className="relative w-[38px] h-[38px] mb-2 flex-shrink-0"
+        whileHover={{ rotate: 10, scale: 1.2 }}
+        transition={{ type: "spring", stiffness: 300 }}
+      >
+        {/* Overlapping icons for smooth swap */}
+        <motion.img
+          src={item.icon}
+          alt={item.name}
+          className="absolute inset-0 w-full h-full object-contain"
+          initial={{ opacity: 1 }}
+          whileHover={{ opacity: 0 }}
+          transition={{ duration: 0.25 }}
+          draggable={false}
+        />
+        <motion.img
+          src={item.hoverIcon}
+          alt={item.name}
+          className="absolute inset-0 w-full h-full object-contain"
+          initial={{ opacity: 0 }}
+          whileHover={{ opacity: 1 }}
+          transition={{ duration: 0.25 }}
+          draggable={false}
+        />
+      </motion.div>
+      <p className="text-sm font-medium text-gray-900 text-center">{item.name}</p>
     </motion.div>
   ))}
 </div>
+
 
        {/* Impact Stats */}
         <motion.section
@@ -134,7 +111,7 @@ export default function Home() {
         >
           <div className="flex items-center gap-12 bg-white px-12 py-6 rounded-2xl border border-blue-300 shadow-sm">
 
-            <Image src="/icon/trophy.png" alt="Impact" width={70} height={70} />
+            <Image src="/icon/trophynew.png" alt="Impact" width={70} height={70} />
 
             <div>
               <h3 className="text-2xl font-semibold">
@@ -263,6 +240,20 @@ export default function Home() {
 
 </section>
 
+
+{/* sales banner 2 */}
+<section className="px-10 py-20 bg-white text-center overflow-hidden">
+<Image
+  src="/icon/banner2.png"
+  alt="Insurance Banner"
+  width={1400}    // double the display width for high-DPI
+  height={520}    // double the display height
+  className="w-full h-[260px] object-cover rounded-xl"
+  priority
+  quality={100}
+/>
+</section>
+
     {/* Customer Testimonials */}
 <section className="px-10 py-20 bg-gray-50 text-center">
 
@@ -280,7 +271,7 @@ export default function Home() {
     <div className="bg-white p-8 rounded-2xl shadow hover:shadow-lg transition text-left">
       <div className="flex items-center gap-4 mb-4">
         <Image
-          src="/icon/stars.png"
+          src="/icon/starsnew.png"
           alt="Customer"
           width={50}
           height={50}
@@ -302,7 +293,7 @@ export default function Home() {
     <div className="bg-blue-600 text-white p-8 rounded-2xl shadow-lg scale-105">
       <div className="flex items-center gap-4 mb-4">
         <Image
-          src="/icon/stars.png"
+          src="/icon/starsnew.png"
           alt="Customer"
           width={50}
           height={50}
@@ -324,7 +315,7 @@ export default function Home() {
     <div className="bg-white p-8 rounded-2xl shadow hover:shadow-lg transition text-left">
       <div className="flex items-center gap-4 mb-4">
         <Image
-          src="/icon/stars.png"
+          src="/icon/starsnew.png"
           alt="Customer"
           width={50}
           height={50}
@@ -361,7 +352,7 @@ export default function Home() {
     {/* Blog 1 */}
     <div className="bg-white border rounded-2xl overflow-hidden shadow hover:shadow-lg transition">
       <Image
-        src="/icon/blog.png"
+        src="/icon/healthblog.jpeg"
         alt="Blog"
         width={500}
         height={260}
@@ -388,7 +379,7 @@ export default function Home() {
     {/* Blog 2 */}
     <div className="bg-white border rounded-2xl overflow-hidden shadow hover:shadow-lg transition">
       <Image
-        src="/icon/blog.png"
+        src="/icon/carblog.jpeg"
         alt="Blog"
         width={500}
         height={260}
@@ -415,7 +406,7 @@ export default function Home() {
     {/* Blog 3 */}
     <div className="bg-white border rounded-2xl overflow-hidden shadow hover:shadow-lg transition">
       <Image
-        src="/icon/blog.png"
+        src="/icon/termblog.jpeg"
         alt="Blog"
         width={500}
         height={260}
@@ -444,8 +435,8 @@ export default function Home() {
 </section>
 
  {/* FAQ SECTION */}
-<section className="py-28 bg-gradient-to-b from-gray-50 to-gray-100">
-  <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-start">
+<section className="py-12 bg-gradient-to-b from-gray-50 to-gray-100">
+  <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-start">
 
     {/* LEFT SIDE */}
     <motion.div
@@ -461,7 +452,7 @@ export default function Home() {
       {/* User Images */}
       <div className="flex items-center -space-x-3 mb-6">
         <Image
-          src="/icon/user.png"
+          src="/icon/usernew.png"
           alt="user"
           width={86}
           height={86}
@@ -584,25 +575,47 @@ export default function Home() {
         <h3 className="text-4xl font-bold mb-4">
           Get the First Advisor App
         </h3>
+          <p className="text-2xl font-semibold mb-5">
+            Get control of all your insurance needs anywhere, anytime.        </p>
 
-        <p className="mb-8 text-blue-100">
-          Compare policies, manage your insurance and raise claims easily
-          from our mobile app.
-        </p>
+   <div>
+  <div className="flex items-center gap-3">
+    <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 00-1.414-1.414L7 12.172 4.707 9.879a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l8-8z" clipRule="evenodd" />
+    </svg>
+    Compare different insurance policies
+  </div>
+
+  <div className="flex items-center gap-3">
+    <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 00-1.414-1.414L7 12.172 4.707 9.879a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l8-8z" clipRule="evenodd" />
+    </svg>
+    Track your policy status on the go
+  </div>
+
+  <div className="flex items-center gap-3">
+    <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 00-1.414-1.414L7 12.172 4.707 9.879a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l8-8z" clipRule="evenodd" />
+    </svg>
+    Download your policy with a single tap
+  </div>
+</div>
 
         <div className="flex gap-4">
           <motion.div whileHover={{ scale: 1.08 }}>
+            <Link href="https://play.google.com/store/apps/details?id=com.palisatiwebresources.opssuite">
             <Image
-              src="/icon/google-play.png"
+              src="/icon/google-playnew.png"
               alt="Google Play"
               width={160}
               height={50}
             />
+            </Link>
           </motion.div>
 
           <motion.div whileHover={{ scale: 1.08 }}>
             <Image
-              src="/icon/app-store.png"
+              src="/icon/app-storenew.png"
               alt="App Store"
               width={160}
               height={50}
@@ -618,7 +631,7 @@ export default function Home() {
         className="flex justify-center"
       >
         <Image
-          src="/icon/mobile.png"
+          src="/icon/mobilenew.png"
           alt="Mobile App"
           width={380}
           height={380}
@@ -631,78 +644,7 @@ export default function Home() {
 
 </section>
 
-   {/* Footer */}
-<footer className="bg-white pt-16">
-
-  <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-10">
-
-    {/* Company Info */}
-    <div>
-      <Image
-        src="/icon/logo.png"
-        alt="First Advisor"
-        width={140}
-        height={60}
-        className="mb-4"
-      />
-
-      <p className="text-gray-600 text-sm">
-        First Advisor helps you compare and buy insurance policies easily.
-        Trusted by thousands of customers across India.
-      </p>
-    </div>
-
-    {/* Quick Links */}
-    <div>
-      <h4 className="font-semibold mb-4 text-gray-900">Quick Links</h4>
-      <ul className="space-y-2 text-gray-600 text-sm">
-        <li>About Us</li>
-        <li>Insurance Products</li>
-        <li>Insurance Advisors</li>
-        <li>Raise a Claim</li>
-        <li>Contact Us</li>
-      </ul>
-    </div>
-
-    {/* Insurance */}
-    <div>
-      <h4 className="font-semibold mb-4 text-gray-900">Insurance</h4>
-      <ul className="space-y-2 text-gray-600 text-sm">
-        <li>Car Insurance</li>
-        <li>Health Insurance</li>
-        <li>Bike Insurance</li>
-        <li>Travel Insurance</li>
-        <li>Term Insurance</li>
-      </ul>
-    </div>
-
-    {/* Contact */}
-    <div>
-      <h4 className="font-semibold mb-4 text-gray-900">Contact</h4>
-
-      <p className="text-gray-600 text-sm mb-2">
-        support@firstadvisor.in
-      </p>
-
-      <p className="text-gray-600 text-sm mb-4">
-        +91 98765 43210
-      </p>
-
-      <div className="flex gap-4">
-        <Image src="/icon/facebook.png" alt="fb" width={24} height={24} />
-        <Image src="/icon/twitter.png" alt="tw" width={24} height={24} />
-        <Image src="/icon/linkedin.png" alt="ln" width={24} height={24} />
-      </div>
-    </div>
-
-  </div>
-
-  {/* Bottom Bar */}
-  <div className="mt-12 py-6 text-center text-gray-500 text-sm">
-    © 2026 First Advisor. All rights reserved.
-  </div>
-
-</footer>
+   
 
 
 
