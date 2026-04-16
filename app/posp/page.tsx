@@ -89,6 +89,75 @@ export default function POSPPage() {
 
       </section>
 
+      {/* BENEFITS SECTION */}
+<section className="max-w-7xl mx-auto px-6 py-16">
+  {/* Heading */}
+  <div className="text-center mb-12">
+    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+      Why Become a POSP Insurance Partner?
+    </h2>
+    <p className="text-gray-600 max-w-2xl mx-auto">
+      Grow your income, work independently, and build your own insurance
+      business with the support of our platform.
+    </p>
+  </div>
+
+  {/* Cards */}
+  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {[
+      {
+        title: "Unlimited Earning Potential",
+        desc: "Earn attractive commissions on every policy you sell with no earning limits.",
+        icon: "💰",
+      },
+      {
+        title: "Work From Anywhere",
+        desc: "Operate your insurance business from home or anywhere in India.",
+        icon: "🌍",
+      },
+      {
+        title: "Instant Policy Issuance",
+        desc: "Generate policies instantly through our digital platform.",
+        icon: "⚡",
+      },
+      {
+        title: "Multiple Insurance Companies",
+        desc: "Offer plans from top insurers to your customers.",
+        icon: "🏢",
+      },
+      {
+        title: "Renewal Income",
+        desc: "Earn recurring income from policy renewals every year.",
+        icon: "🔁",
+      },
+      {
+        title: "Marketing Support",
+        desc: "Get promotional materials and expert guidance to grow faster.",
+        icon: "📈",
+      },
+    ].map((item, index) => (
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: index * 0.1 }}
+        whileHover={{ y: -6 }}
+        className="bg-white rounded-2xl shadow-md hover:shadow-xl p-6 border border-gray-100 transition"
+      >
+        <div className="text-3xl mb-4">{item.icon}</div>
+
+        <h3 className="font-semibold text-lg text-gray-900 mb-2">
+          {item.title}
+        </h3>
+
+        <p className="text-gray-600 text-sm leading-relaxed">
+          {item.desc}
+        </p>
+      </motion.div>
+    ))}
+  </div>
+</section>
+
     </main>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { ChevronDown } from "lucide-react";
+//import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -40,7 +40,7 @@ export default function Home() {
             className="hidden md:flex justify-center"
           >
 <Image
-  src="/heroimg.png"
+  src="/icon/heroimgnew.png"
   alt="Insurance Banner"
   width={1400}    // double the display width for high-DPI
   height={520}    // double the display height
@@ -55,50 +55,55 @@ export default function Home() {
    {/* Insurance Cards */}
 <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-2">
   {[
-    { name: "Car Insurance", icon: "/icon/carsnew.png", hoverIcon: "/icon/carnewhover.png" },
-    { name: "Bike Insurance", icon: "/icon/bikenew.png", hoverIcon: "/icon/bikenewhover.png" },
-    { name: "Health Insurance", icon: "/icon/healthnew.png", hoverIcon: "/icon/healthnewhover.png" },
-    { name: "Travel Insurance", icon: "/icon/travelnew.png", hoverIcon: "/icon/travelnewhover.png" },
-    { name: "Business Insurance", icon: "/icon/bussinesnew.png", hoverIcon: "/icon/bussinesnewhover.png" },
+    { name: "Car Insurance", icon: "/icon/carsnew.png", hoverIcon: "/icon/carnewhover.png", link: "/insurance/car" },
+    { name: "Bike Insurance", icon: "/icon/bikenew.png", hoverIcon: "/icon/bikenewhover.png", link: "/insurance/bike" },
+    { name: "Health Insurance", icon: "/icon/healthnew.png", hoverIcon: "/icon/healthnewhover.png", link: "/insurance/health"},
+    { name: "Travel Insurance", icon: "/icon/travelnew.png", hoverIcon: "/icon/travelnewhover.png",link: "/insurance/travel"},
+    { name: "Business Insurance", icon: "/icon/bussinesnew.png", hoverIcon: "/icon/bussinesnewhover.png", link: "/insurance/bussiness" },
     { name: "Term Insurance", icon: "/icon/termnew.png", hoverIcon: "/icon/termnewhover.png" },
     { name: "Family Health", icon: "/icon/familynew.png", hoverIcon: "/icon/familynewhover.png" },
     { name: "Home Insurance", icon: "/icon/homenew.png", hoverIcon: "/icon/homenewhover.png" },
     { name: "Investment Plans", icon: "/icon/investnew.png", hoverIcon: "/icon/investnewhover.png" },
     { name: "View All", icon: "/icon/allnew.png", hoverIcon: "/icon/allnewhover.png" },
   ].map((item, index) => (
-    <motion.div
-      key={index}
-      whileHover={{ y: -6, scale: 1.05 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className="bg-white p-4 rounded-xl text-center shadow-sm border border-gray-100 cursor-pointer hover:shadow-xl hover:bg-blue-50 transition-all duration-300 flex flex-col items-center justify-between"
-    >
+    
+    <Link key={index} href={item.link || "#"}>
       <motion.div
-        className="relative w-[38px] h-[38px] mb-2 flex-shrink-0"
-        whileHover={{ rotate: 10, scale: 1.2 }}
-        transition={{ type: "spring", stiffness: 300 }}
+        whileHover={{ y: -6, scale: 1.05 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        className="bg-white p-4 rounded-xl text-center shadow-sm border border-gray-100 cursor-pointer hover:shadow-xl hover:bg-blue-50 transition-all duration-300 flex flex-col items-center justify-between"
       >
-        {/* Overlapping icons for smooth swap */}
-        <motion.img
-          src={item.icon}
-          alt={item.name}
-          className="absolute inset-0 w-full h-full object-contain"
-          initial={{ opacity: 1 }}
-          whileHover={{ opacity: 0 }}
-          transition={{ duration: 0.25 }}
-          draggable={false}
-        />
-        <motion.img
-          src={item.hoverIcon}
-          alt={item.name}
-          className="absolute inset-0 w-full h-full object-contain"
-          initial={{ opacity: 0 }}
-          whileHover={{ opacity: 1 }}
-          transition={{ duration: 0.25 }}
-          draggable={false}
-        />
+        <motion.div
+          className="relative w-[38px] h-[38px] mb-2 flex-shrink-0"
+          whileHover={{ rotate: 10, scale: 1.2 }}
+          transition={{ type: "spring", stiffness: 300 }}
+        >
+          <motion.img
+            src={item.icon}
+            alt={item.name}
+            className="absolute inset-0 w-full h-full object-contain"
+            initial={{ opacity: 1 }}
+            whileHover={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            draggable={false}
+          />
+          <motion.img
+            src={item.hoverIcon}
+            alt={item.name}
+            className="absolute inset-0 w-full h-full object-contain"
+            initial={{ opacity: 0 }}
+            whileHover={{ opacity: 1 }}
+            transition={{ duration: 0.25 }}
+            draggable={false}
+          />
+        </motion.div>
+
+        <p className="text-sm font-medium text-gray-900 text-center">
+          {item.name}
+        </p>
       </motion.div>
-      <p className="text-sm font-medium text-gray-900 text-center">{item.name}</p>
-    </motion.div>
+    </Link>
+
   ))}
 </div>
 
@@ -435,8 +440,8 @@ export default function Home() {
 </section>
 
  {/* FAQ SECTION */}
-<section className="py-12 bg-gradient-to-b from-gray-50 to-gray-100">
-  <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-start">
+<section className="py-8 bg-gradient-to-b from-gray-50 to-gray-100">
+  <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
 
     {/* LEFT SIDE */}
     <motion.div
@@ -643,11 +648,6 @@ export default function Home() {
   </div>
 
 </section>
-
-   
-
-
-
     </main>
   );
 }

@@ -30,84 +30,70 @@ export default function AboutUs() {
   return (
     <main className="min-h-screen bg-white text-gray-900 overflow-x-hidden">
 
-     <section className="py-15 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+   <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50 relative overflow-hidden">
 
-  {/* Background Glow */}
-  <div className="absolute top-0 left-0 w-72 h-72 bg-blue-200 blur-3xl opacity-30 rounded-full"></div>
-  <div className="absolute bottom-0 right-0 w-72 h-72 bg-indigo-200 blur-3xl opacity-30 rounded-full"></div>
+  {/* Glow Effects */}
+  <div className="absolute top-0 left-0 w-72 h-72 bg-blue-300 blur-3xl opacity-20 rounded-full"></div>
+  <div className="absolute bottom-0 right-0 w-72 h-72 bg-indigo-300 blur-3xl opacity-20 rounded-full"></div>
 
-  <div className="max-w-7xl mx-auto px-6 relative z-10">
-    <div className="grid md:grid-cols-2 gap-16 items-center">
+  <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
-      {/* LEFT IMAGE SECTION ✅ */}
-      <motion.div
-        initial={{ opacity: 0, x: -40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6 }}
-        className="relative flex justify-center"
-      >
-        {/* Glow */}
-        <div className="absolute w-[350px] h-[350px] bg-blue-300 opacity-30 blur-3xl rounded-full"></div>
+    {/* LEFT CONTENT */}
+    <motion.div
+      initial={{ opacity: 0, x: -40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <h1 className="text-5xl font-bold leading-tight mb-6">
+        We Simplify <span className="text-blue-600">Insurance</span> for You
+      </h1>
 
-        {/* Image Card */}
-        <div className="relative bg-white/70 backdrop-blur-xl border border-gray-200 p-4 rounded-3xl shadow-2xl">
-          <Image
-            src="/icon/aboutusnew.jpeg" // 👉 add a professional image here
-            alt="About First Advisor"
-            width={520}
-            height={520}
-            className="rounded-2xl object-cover"
-          />
+      <p className="text-gray-600 text-lg mb-6">
+        First Advisor is one of India’s most trusted platforms helping individuals
+        and businesses compare, choose and buy the right insurance with confidence.
+      </p>
+
+      {/* Trust badges */}
+      <div className="flex gap-6 mb-8">
+        <div>
+          <p className="text-3xl font-bold text-blue-600">10L+</p>
+          <p className="text-sm text-gray-500">Customers</p>
         </div>
-      </motion.div>
+        <div>
+          <p className="text-3xl font-bold text-blue-600">50+</p>
+          <p className="text-sm text-gray-500">Insurers</p>
+        </div>
+        <div>
+          <p className="text-3xl font-bold text-blue-600">10K+</p>
+          <p className="text-sm text-gray-500">Claims</p>
+        </div>
+      </div>
 
-      {/* RIGHT CONTENT */}
-      <motion.div
-        initial={{ opacity: 0, x: 40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6 }}
-      >
+      {/* CTA */}
+      <button className="bg-blue-600 text-white px-6 py-3 rounded-xl hover:bg-blue-700 transition shadow-lg">
+        Get Started
+      </button>
+    </motion.div>
 
-        {/* Title */}
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-gray-900">
-          About <span className="text-blue-600">First Advisor</span>
-        </h2>
+    {/* RIGHT IMAGE */}
+    <motion.div
+      initial={{ opacity: 0, x: 40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
+      className="relative"
+    >
+      <div className="absolute w-[350px] h-[350px] bg-blue-200 blur-3xl opacity-30 rounded-full"></div>
 
-        {/* Description */}
-        <p className="text-gray-600 text-lg leading-relaxed mb-6">
-          First Advisor is one of India’s trusted insurance platforms, helping individuals and businesses protect what matters most. We provide simple, transparent, and affordable insurance solutions tailored to your needs.
-        </p>
+      <Image
+        src="/icon/aboutusnew.jpeg"
+        alt="About"
+        width={520}
+        height={520}
+        className="rounded-3xl shadow-2xl"
+      />
+    </motion.div>
 
-        <p className="text-gray-600 text-lg leading-relaxed mb-8">
-          Our mission is to empower customers with the right knowledge and tools to make confident insurance decisions.
-        </p>
 
-        {/* FEATURES */}
-   <div className="grid grid-cols-2 gap-4 text-lg">
-  <div className="flex items-center gap-2">
-    <span className="text-green-500 font-bold">✔</span>
-    <span className="text-blue-600 font-semibold">Trusted Advisors</span>
-  </div>
-
-  <div className="flex items-center gap-2">
-    <span className="text-green-500 font-bold">✔</span>
-    <span className="text-blue-600 font-semibold">Fast Claims</span>
-  </div>
-
-  <div className="flex items-center gap-2">
-    <span className="text-green-500 font-bold">✔</span>
-    <span className="text-blue-600 font-semibold">24/7 Support</span>
-  </div>
-
-  <div className="flex items-center gap-2">
-    <span className="text-green-500 font-bold">✔</span>
-    <span className="text-blue-600 font-semibold">Transparent Pricing</span>
-  </div>
-</div>
-
-      </motion.div>
-
-    </div>
   </div>
 </section>
      
@@ -139,60 +125,40 @@ export default function AboutUs() {
 
   {/* Cards */}
   <motion.div
-    variants={container}
-    initial="hidden"
-    whileInView="show"
-    viewport={{ once: true }}
-    className="grid md:grid-cols-3 gap-10"
-  >
-    {[
-      {
-        title: "Car Insurance",
-        desc: "Protect your vehicle with coverage against accidents, damage, and theft."
-      },
-      {
-        title: "Bike Insurance",
-        desc: "Secure your two-wheeler with reliable and flexible insurance plans."
-      },
-      {
-        title: "Commercial Insurance",
-        desc: "Comprehensive protection for your business assets and operations."
-      },
-      {
-        title: "Health Insurance",
-        desc: "Access quality healthcare with plans designed for your family."
-      },
-      {
-        title: "Term Insurance",
-        desc: "Ensure financial security for your loved ones when it matters most."
-      },
-      {
-        title: "Investment Plans",
-        desc: "Grow your wealth with smart, goal-based investment solutions."
-      },
-    ].map((service, i) => (
-      <motion.div
-        key={i}
-        variants={card}
-        whileHover={{
-          scale: 1.05,
-          y: -10,
-        }}
-        className="p-8 bg-gray-50 rounded-2xl shadow-md hover:shadow-2xl transition duration-300 cursor-pointer group"
-      >
-        {/* Top accent line */}
-        <div className="h-1 w-12 bg-blue-600 mb-4 mx-auto group-hover:w-20 transition-all duration-300"></div>
+  variants={container}
+  initial="hidden"
+  whileInView="show"
+  className="grid md:grid-cols-3 gap-10"
+>
+  {[
+    "Car Insurance",
+    "Bike Insurance",
+    "Commercial Insurance",
+    "Health Insurance",
+    "Term Insurance",
+    "Investment Plans",
+  ].map((title, i) => (
+    <motion.div
+      key={i}
+      variants={card}
+      whileHover={{ y: -10, scale: 1.05 }}
+      className="p-8 bg-white rounded-2xl border hover:border-blue-300 shadow-md hover:shadow-xl transition group"
+    >
+      {/* Icon circle */}
+      <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-blue-100 group-hover:bg-blue-600 transition">
+        <span className="text-blue-600 group-hover:text-white text-xl">★</span>
+      </div>
 
-        <h4 className="text-xl font-semibold mb-3 text-blue-600">
-          {service.title}
-        </h4>
+      <h4 className="text-xl font-semibold mb-2 text-gray-900">
+        {title}
+      </h4>
 
-        <p className="text-gray-600 text-sm leading-relaxed">
-          {service.desc}
-        </p>
-      </motion.div>
-    ))}
-  </motion.div>
+      <p className="text-gray-600 text-sm">
+        Smart, simple and reliable insurance solutions tailored for your needs.
+      </p>
+    </motion.div>
+  ))}
+</motion.div>
 </section>
 
       {/* FAQ (optional, can be kept as Home style) */}
