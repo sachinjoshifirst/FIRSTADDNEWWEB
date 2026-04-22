@@ -6,124 +6,157 @@ import { Building2, ShieldCheck, Users, Flame, CheckCircle } from "lucide-react"
 export default function BusinessInsurancePage() {
   const services = [
     {
-      title: "Property Insurance",
-      desc: "Coverage for your commercial property",
+      title: "Property Protection",
+      desc: "Secure your office, shop, and physical assets",
       icon: Building2,
-      bg: "bg-blue-50",
-      iconColor: "text-blue-600",
+      color: "from-blue-500 to-indigo-600",
     },
     {
-      title: "Liability Insurance",
-      desc: "Protect against legal risks",
+      title: "Legal Safety",
+      desc: "Protection from lawsuits and liability risks",
       icon: ShieldCheck,
-      bg: "bg-green-50",
-      iconColor: "text-green-600",
+      color: "from-emerald-500 to-teal-600",
     },
     {
-      title: "Employee Insurance",
-      desc: "Secure your workforce",
+      title: "Team Security",
+      desc: "Cover your employees and workforce",
       icon: Users,
-      bg: "bg-purple-50",
-      iconColor: "text-purple-600",
+      color: "from-purple-500 to-violet-600",
     },
     {
-      title: "Fire Insurance",
-      desc: "Protection from fire damage",
+      title: "Risk Cover",
+      desc: "Fire, flood, and unexpected business losses",
       icon: Flame,
-      bg: "bg-orange-50",
-      iconColor: "text-orange-600",
+      color: "from-orange-500 to-pink-500",
     },
   ];
 
   return (
-    <main className="min-h-screen bg-slate-50 p-6">
-      <div className="max-w-7xl mx-auto">
+    <main className="min-h-screen bg-gradient-to-br from-white via-slate-50 to-blue-50 px-6 py-16">
 
-        {/* HERO SECTION */}
-        <div className="grid md:grid-cols-2 gap-10 items-center bg-white p-8 rounded-3xl shadow-sm border">
+      <div className="max-w-7xl mx-auto space-y-24">
+
+        {/* HERO */}
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+
           {/* LEFT */}
-          <div className="space-y-5">
-            <p className="text-blue-600 font-medium">Office Package Policy</p>
+          <div className="space-y-6">
 
-            <h1 className="text-4xl font-bold text-slate-800 leading-snug">
-              Get <span className="text-blue-600">₹50 Lakh</span> cover for just
-              <span className="text-blue-600"> ₹4,000/year</span>
+            <span className="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-600 text-sm font-medium">
+              Business Insurance
+            </span>
+
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight text-slate-900">
+              Protect your business with
+              <span className="text-blue-600"> confidence</span>
             </h1>
 
-            <div className="flex gap-6 text-slate-600">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="text-blue-500" size={18} />
-                <span>Fire damage to building</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="text-blue-500" size={18} />
-                <span>Electronic equipment cover</span>
-              </div>
-            </div>
-
-            <div className="bg-slate-100 p-4 rounded-xl mt-4">
-              <p className="text-sm text-slate-600">10+ insurance partners</p>
-              <div className="flex gap-4 mt-3 text-xs text-slate-500">
-                <span>HDFC</span>
-                <span>Bajaj</span>
-                <span>TATA AIG</span>
-                <span>Shriram</span>
-              </div>
-            </div>
-          </div>
-
-          {/* RIGHT FORM */}
-          <div className="bg-slate-50 p-6 rounded-2xl border shadow-sm space-y-4">
-            <h2 className="text-xl font-semibold text-slate-800">
-              Get custom plans
-            </h2>
-
-            <input
-              type="text"
-              placeholder="Company name"
-              className="w-full border rounded-xl px-4 py-3 outline-none"
-            />
-
-            <input
-              type="text"
-              placeholder="Mobile number"
-              className="w-full border rounded-xl px-4 py-3 outline-none"
-            />
-
-            <button className="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700">
-              View plans →
-            </button>
-
-            <p className="text-xs text-slate-500 text-center">
-              We don’t spam. 100% secure.
+            <p className="text-slate-600 text-lg">
+              Simple, smart, and flexible insurance plans designed to secure your business from risks and uncertainties.
             </p>
+
+            <div className="space-y-3">
+              {[
+                "Fast claim assistance",
+                "Flexible coverage options",
+                "Trusted risk protection",
+              ].map((t, i) => (
+                <div key={i} className="flex items-center gap-3 text-slate-700">
+                  <CheckCircle className="text-green-500" size={18} />
+                  <span>{t}</span>
+                </div>
+              ))}
+            </div>
+
+
           </div>
+
+          {/* RIGHT FORM (soft glass look) */}
+          <div className="relative">
+
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 blur-3xl opacity-10 rounded-3xl"></div>
+
+            <div className="relative bg-white/70 backdrop-blur-xl p-8 rounded-3xl shadow-xl space-y-4">
+
+              <h2 className="text-xl font-semibold text-slate-800">
+                Request Business Quote
+              </h2>
+
+              <input className="w-full px-4 py-3 rounded-xl bg-slate-100 focus:outline-none" placeholder="Full Name" />
+              <input className="w-full px-4 py-3 rounded-xl bg-slate-100 focus:outline-none" placeholder="Mobile Number" />
+              <input className="w-full px-4 py-3 rounded-xl bg-slate-100 focus:outline-none" placeholder="Business Name" />
+
+              <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-xl font-semibold hover:opacity-90 transition">
+                Get Plans →
+              </button>
+
+              <p className="text-xs text-slate-500 text-center">
+                No spam. Only relevant offers.
+              </p>
+
+            </div>
+          </div>
+
         </div>
 
-        {/* SERVICES */}
-        <div className="mt-12 grid md:grid-cols-4 gap-6">
+        {/* SERVICES (NO BOX FEEL - FLOATING STYLE) */}
+        <div className="grid md:grid-cols-4 gap-8">
+
           {services.map((item, i) => (
             <motion.div
               key={i}
-              whileHover={{ y: -6 }}
-              className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition border"
+              whileHover={{ y: -8 }}
+              className="group"
             >
-              <div
-                className={`w-14 h-14 rounded-xl flex items-center justify-center ${item.bg}`}
-              >
-                <item.icon className={`${item.iconColor}`} />
+
+              <div className="p-6 rounded-2xl bg-white shadow-sm hover:shadow-xl transition duration-300">
+
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-r ${item.color} flex items-center justify-center text-white shadow-lg`}>
+                  <item.icon size={22} />
+                </div>
+
+                <h3 className="mt-5 text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition">
+                  {item.title}
+                </h3>
+
+                <p className="text-sm text-slate-500 mt-2 leading-relaxed">
+                  {item.desc}
+                </p>
+
               </div>
-
-              <h3 className="mt-4 text-lg font-semibold text-slate-800">
-                {item.title}
-              </h3>
-
-              <p className="text-sm text-slate-500 mt-2">
-                {item.desc}
-              </p>
             </motion.div>
           ))}
+
         </div>
+
+        {/* STATS SECTION (CLEAN & MODERN) */}
+        <div className="text-center space-y-10">
+
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
+            Trusted by growing businesses
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-10">
+
+            <div>
+              <p className="text-4xl font-bold text-blue-600">10K+</p>
+              <p className="text-slate-500 mt-2">Businesses Protected</p>
+            </div>
+
+            <div>
+              <p className="text-4xl font-bold text-green-600">99%</p>
+              <p className="text-slate-500 mt-2">Claim Success Rate</p>
+            </div>
+
+            <div>
+              <p className="text-4xl font-bold text-purple-600">24/7</p>
+              <p className="text-slate-500 mt-2">Support Available</p>
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
     </main>
   );

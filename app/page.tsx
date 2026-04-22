@@ -4,6 +4,7 @@ import Image from "next/image";
 //import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { CheckCircle2, Zap } from "lucide-react";
 
 export default function Home() {
 
@@ -28,6 +29,23 @@ export default function Home() {
   Your insurance <br></br>journey, <span style={{ color: '#1062D4' }}>simplified</span>
 </h2>
 
+  {/* NEW ADDED LINE */}
+<div className="flex flex-wrap justify-center md:justify-start gap-3 mt-4">
+
+  {/* Badge 1 */}
+  <span className="flex items-center gap-2 px-4 py-2 bg-white/70 backdrop-blur border border-blue-100 rounded-full text-sm text-gray-700 shadow-sm">
+    <CheckCircle2 size={16} className="text-blue-600" />
+    51 insurers offering lowest prices
+  </span>
+
+  {/* Badge 2 */}
+  <span className="flex items-center gap-2 px-4 py-2 bg-white/70 backdrop-blur border border-green-100 rounded-full text-sm text-gray-700 shadow-sm">
+    <Zap size={16} className="text-green-600" />
+    Quick, easy & hassle free
+  </span>
+
+</div>
+
          
             {/* <button className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:scale-105 transition">
               Talk to Expert
@@ -40,7 +58,7 @@ export default function Home() {
             className="hidden md:flex justify-center"
           >
 <Image
-  src="/icon/heroimgnew.png"
+  src="/icon/heroimg.png"
   alt="Insurance Banner"
   width={1400}    // double the display width for high-DPI
   height={520}    // double the display height
@@ -60,10 +78,10 @@ export default function Home() {
     { name: "Health Insurance", icon: "/icon/healthnew.png", hoverIcon: "/icon/healthnewhover.png", link: "/insurance/health"},
     { name: "Travel Insurance", icon: "/icon/travelnew.png", hoverIcon: "/icon/travelnewhover.png",link: "/insurance/travel"},
     { name: "Business Insurance", icon: "/icon/bussinesnew.png", hoverIcon: "/icon/bussinesnewhover.png", link: "/insurance/bussiness" },
-    { name: "Term Insurance", icon: "/icon/termnew.png", hoverIcon: "/icon/termnewhover.png" },
-    { name: "Family Health", icon: "/icon/familynew.png", hoverIcon: "/icon/familynewhover.png" },
-    { name: "Home Insurance", icon: "/icon/homenew.png", hoverIcon: "/icon/homenewhover.png" },
-    { name: "Investment Plans", icon: "/icon/investnew.png", hoverIcon: "/icon/investnewhover.png" },
+    { name: "Term Insurance", icon: "/icon/termnew.png", hoverIcon: "/icon/termnewhover.png" ,link: "/insurance/term"},
+    { name: "Family Health", icon: "/icon/familynew.png", hoverIcon: "/icon/familynewhover.png", link: "/insurance/health" },
+    { name: "Home Insurance", icon: "/icon/homenew.png", hoverIcon: "/icon/homenewhover.png", link: "/insurance/home" },
+    { name: "Investment Plans", icon: "/icon/investnew.png", hoverIcon: "/icon/investnewhover.png" , link: "/insurance/investment"},
     { name: "View All", icon: "/icon/allnew.png", hoverIcon: "/icon/allnewhover.png" },
   ].map((item, index) => (
     
