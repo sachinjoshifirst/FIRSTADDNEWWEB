@@ -42,9 +42,9 @@ export default function HealthInsurancePage() {
           </p>
 
           {/* Button */}
-          <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+          {/* <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
             Start Now
-          </button>
+          </button> */}
         </div>
 
         {/* RIGHT SIDE FORM */}
@@ -85,26 +85,32 @@ export default function HealthInsurancePage() {
             />
           </div>
 
-          {/* Gender */}
-          <div className="flex gap-6 mb-4 text-sm">
-            <label className="flex items-center gap-2">
-              <input
-                type="radio"
-                checked={gender === "Male"}
-                onChange={() => setGender("Male")}
-              />
-              Male
-            </label>
+           <input
+            type="text"
+            placeholder="Your Email"
+            className="w-full border rounded-lg px-4 py-3 mb-4 focus:outline-blue-500"
+          />
 
-            <label className="flex items-center gap-2">
-              <input
-                type="radio"
-                checked={gender === "Female"}
-                onChange={() => setGender("Female")}
-              />
-              Female
-            </label>
-          </div>
+          {/* Gender
+          // <div className="flex gap-6 mb-4 text-sm">
+          //   <label className="flex items-center gap-2">
+          //     <input
+          //       type="radio"
+          //       checked={gender === "Male"}
+          //       onChange={() => setGender("Male")}
+          //     />
+          //     Male
+          //   </label>
+
+          //   <label className="flex items-center gap-2">
+          //     <input
+          //       type="radio"
+          //       checked={gender === "Female"}
+          //       onChange={() => setGender("Female")}
+          //     />
+          //     Female
+          //   </label>
+          // </div> */}
 
           {/* WhatsApp */}
           <div className="flex items-center gap-2 mb-4 text-sm">
@@ -150,7 +156,7 @@ export default function HealthInsurancePage() {
     {/* Card 1 */}
     <div className="flex items-start gap-4 border rounded-xl p-5 hover:shadow-md transition">
       <div className="bg-blue-100 p-3 rounded-lg">
-        <Image src="/icon/policy.png" alt="plans" width={24} height={24} />
+        <Image src="/location/wide.jpeg" alt="plans" width={24} height={24} />
       </div>
       <div className="text-left">
         <h4 className="font-semibold text-gray-900">
@@ -167,7 +173,7 @@ export default function HealthInsurancePage() {
     {/* Card 2 */}
     <div className="flex items-start gap-4 border rounded-xl p-5 hover:shadow-md transition">
       <div className="bg-blue-100 p-3 rounded-lg">
-        <Image src="/icon/support.png" alt="support" width={24} height={24} />
+        <Image src="/location/adv.jpeg" alt="support" width={34} height={34} />
       </div>
       <div className="text-left">
         <h4 className="font-semibold text-gray-900">
@@ -184,7 +190,7 @@ export default function HealthInsurancePage() {
     {/* Card 3 */}
     <div className="flex items-start gap-4 border rounded-xl p-5 hover:shadow-md transition">
       <div className="bg-blue-100 p-3 rounded-lg">
-        <Image src="/icon/headphone.png" alt="claim" width={24} height={24} />
+        <Image src="/location/247.jpeg" alt="claim" width={34} height={34} />
       </div>
       <div className="text-left">
         <h4 className="font-semibold text-gray-900">
@@ -204,7 +210,7 @@ export default function HealthInsurancePage() {
     {/* Card 4 */}
     <div className="flex items-start gap-4 border rounded-xl p-5 hover:shadow-md transition">
       <div className="bg-blue-100 p-3 rounded-lg">
-        <Image src="/icon/customer.png" alt="customer" width={24} height={24} />
+        <Image src="/location/fam.jpeg" alt="customer" width={34} height={34} />
       </div>
       <div className="text-left">
         <h4 className="font-semibold text-gray-900">
@@ -221,7 +227,7 @@ export default function HealthInsurancePage() {
     {/* Card 5 */}
     <div className="flex items-start gap-4 border rounded-xl p-5 hover:shadow-md transition">
       <div className="bg-blue-100 p-3 rounded-lg">
-        <Image src="/icon/payment.png" alt="payment" width={24} height={24} />
+        <Image src="/location/flex.jpeg" alt="payment" width={34} height={34} />
       </div>
       <div className="text-left">
         <h4 className="font-semibold text-gray-900">

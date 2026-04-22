@@ -1,22 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import { Search, Calendar, Users } from "lucide-react";
+import { Calendar, Users } from "lucide-react";
 
 export default function TravelInsuranceUI() {
   const [travellers, setTravellers] = useState(0);
 
+  // 👉 Updated with images
   const popular = [
-    "Schengen",
-    "UAE",
-    "Thailand",
-    "USA",
-    "United Kingdom",
-    "Singapore",
+    { name: "Schengen", img: "/location/sch.png" },
+    { name: "UAE", img: "/location/uea.png" },
+    { name: "Thailand", img: "/location/thai.png" },
+    { name: "USA", img: "/location/usa.png" },
+    { name: "United Kingdom", img: "/location/uk.png" },
+    { name: "Singapore", img: "/location/sing.png" },
   ];
 
   return (
-<main className="min-h-screen bg-[#f6f8fb] px-6 md:px-12 lg:px-20 py-16">
+    <main className="min-h-screen bg-[#f6f8fb] px-6 md:px-12 lg:px-20 py-16">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
 
         {/* LEFT */}
@@ -61,46 +62,58 @@ export default function TravelInsuranceUI() {
         {/* RIGHT */}
         <div className="bg-white rounded-2xl shadow-md p-8 space-y-6">
 
-        
-
-          {/* POPULAR */}
+          {/* POPULAR DESTINATIONS */}
           <div>
+            <h3 className="text-sm font-medium text-gray-700 mb-3">
+              Popular Destinations
+            </h3>
+
             <div className="flex flex-wrap gap-4">
               {popular.map((item) => (
                 <button
-                  key={item}
-                  className="flex flex-col items-center text-xs text-gray-700"
+                  key={item.name}
+                  className="flex flex-col items-center text-xs text-gray-700 hover:scale-105 transition"
                 >
-                  <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-lg">
-                    🌍
+                  <div className="w-12 h-12 rounded-full bg-white shadow-sm border flex items-center justify-center overflow-hidden">
+                    <img
+                      src={item.img}
+                      alt={item.name}
+                      className="w-12 h-12 object-contain"
+                    />
                   </div>
-                  {item}
+                  <span className="mt-1">{item.name}</span>
                 </button>
               ))}
             </div>
           </div>
 
-          {/* NEW: NAME + MOBILE */}
+          {/* NAME + MOBILE */}
           <div className="grid grid-cols-2 gap-4">
             <input
               type="text"
               placeholder="Full Name"
-              className="border rounded-lg px-3 py-2 text-sm outline-none"
+              className="border rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-blue-500"
             />
             <input
               type="tel"
               placeholder="Mobile Number"
-              className="border rounded-lg px-3 py-2 text-sm outline-none"
+              className="border rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
+
+          {/* EMAIL */}
+          <input
+            type="email"
+            placeholder="Your Email"
+            className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
 
           {/* DATES */}
           <div className="grid grid-cols-2 gap-4">
             <div className="flex items-center border rounded-lg px-3 py-2">
               <Calendar size={16} className="text-gray-400" />
               <input
-                type="text"
-                placeholder="Start date"
+                type="date"
                 className="ml-2 w-full outline-none text-sm"
               />
             </div>
@@ -108,8 +121,7 @@ export default function TravelInsuranceUI() {
             <div className="flex items-center border rounded-lg px-3 py-2">
               <Calendar size={16} className="text-gray-400" />
               <input
-                type="text"
-                placeholder="End date"
+                type="date"
                 className="ml-2 w-full outline-none text-sm"
               />
             </div>
@@ -124,21 +136,23 @@ export default function TravelInsuranceUI() {
 
             <div className="flex items-center gap-4">
               <button
-                onClick={() =>
-                  setTravellers(Math.max(0, travellers - 1))
-                }
+                className="px-2 py-1 border rounded"
+                onClick={() => setTravellers(Math.max(0, travellers - 1))}
               >
                 -
               </button>
               <span>{travellers}</span>
-              <button onClick={() => setTravellers(travellers + 1)}>
+              <button
+                className="px-2 py-1 border rounded"
+                onClick={() => setTravellers(travellers + 1)}
+              >
                 +
               </button>
             </div>
           </div>
 
           {/* CTA */}
-          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg flex items-center justify-center gap-2">
+          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg flex items-center justify-center gap-2 transition">
             Get instant quote →
           </button>
         </div>

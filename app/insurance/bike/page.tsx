@@ -6,6 +6,8 @@ import { useState } from "react";
 
 export default function CarInsurancePage() {
   const [carNumber, setCarNumber] = useState("");
+     const [name, setName] = useState("");
+  const [mobile, setMobile] = useState("");
 
   return (
     <main className="bg-white text-gray-900">
@@ -41,12 +43,32 @@ export default function CarInsurancePage() {
         </div>
 
         {/* INPUT */}
-        <div className="mb-4">
-          <input
+        <div className="mb-4 space-y-2">
+             {/* Name */}
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Enter your name"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
+                />
+
+                {/* Mobile */}
+                <input
+                  type="tel"
+                  value={mobile}
+                  onChange={(e) => setMobile(e.target.value)}
+                  placeholder="Enter mobile number"
+                  maxLength={10}
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
+                />
+
+                 <input
             type="text"
-            placeholder="Your bike number ex DL-12-AB-2345"
+            placeholder="Your Email"
             className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
           />
+
         </div>
 
         {/* BUTTON */}
